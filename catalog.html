@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catalog - CampusMarket</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">Campus<span>Market</span></a>
+      <nav>
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="catalog.html" aria-current="page">Catalog</a></li>
+          <li><a href="register.html">Register</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="catalog-intro">
+      <div class="container">
+        <h1>Product Catalog</h1>
+        <p>Browse listings currently posted by students on your campus.</p>
+      </div>
+    </section>
+    <section class="catalog">
+      <div class="container">
+        <div class="catalog-controls">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search products..."
+            oninput="filterProducts()">
+          <select id="categorySelect" onchange="filterProducts()">
+            <option value="all">All categories</option>
+            <option value="books">Books</option>
+            <option value="electronics">Electronics</option>
+            <option value="home">Home</option>
+          </select>
+        </div>
+        <p id="noResults" class="no-results" hidden>No products match your search.</p>
+        <div class="product-grid" id="productGrid">
+          <article class="product-card" data-category="books" data-price="1500">
+            <h2 class="product-name">Calculus: Early Transcendentals (8th Ed)</h2>
+            <p class="product-price">KES 1,500</p>
+            <p class="product-desc">Gently used textbook, no missing pages, some highlighting in the first three chapters.</p>
+            <div class="product-calc">
+              <label>Qty:
+                <input type="number" min="1" value="1" class="qty-input" oninput="updateTotal(this)">
+              </label>
+              <p class="product-total">Total: KES <span class="total-value">1500</span></p>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="home" data-price="6000">
+            <h2 class="product-name">Mini Dorm Fridge</h2>
+            <p class="product-price">KES 6,000</p>
+            <p class="product-desc">Compact fridge, works perfectly, moving out of the hostel and can't take it home.</p>
+            <div class="product-calc">
+              <label>Qty:
+                <input type="number" min="1" value="1" class="qty-input" oninput="updateTotal(this)">
+              </label>
+              <p class="product-total">Total: KES <span class="total-value">6000</span></p>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="electronics" data-price="4200">
+            <h2 class="product-name">TI-84 Plus Graphing Calculator</h2>
+            <p class="product-price">KES 4,200</p>
+            <p class="product-desc">Includes charging cable and protective case. Great for engineering and stats courses.</p>
+            <div class="product-calc">
+              <label>Qty:
+                <input type="number" min="1" value="1" class="qty-input" oninput="updateTotal(this)">
+              </label>
+              <p class="product-total">Total: KES <span class="total-value">4200</span></p>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="home" data-price="800">
+            <h2 class="product-name">Study Desk Lamp</h2>
+            <p class="product-price">KES 800</p>
+            <p class="product-desc">Adjustable LED desk lamp with three brightness settings, barely used.</p>
+            <div class="product-calc">
+              <label>Qty:
+                <input type="number" min="1" value="1" class="qty-input" oninput="updateTotal(this)">
+              </label>
+              <p class="product-total">Total: KES <span class="total-value">800</span></p>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="electronics" data-price="3000">
+            <h2 class="product-name">Wireless Bluetooth Headphones</h2>
+            <p class="product-price">KES 3,000</p>
+            <p class="product-desc">Over-ear headphones, good battery life, original box included.</p>
+            <div class="product-calc">
+              <label>Qty:
+                <input type="number" min="1" value="1" class="qty-input" oninput="updateTotal(this)">
+              </label>
+              <p class="product-total">Total: KES <span class="total-value">3000</span></p>
+            </div>
+          </article>
+
+          <article class="product-card" data-category="books" data-price="1800">
+            <h2 class="product-name">Introduction to Algorithms Textbook</h2>
+            <p class="product-price">KES 1,800</p>
+            <p class="product-desc">CS course reference text, hardcover, in excellent condition.</p>
+            <div class="product-calc">
+              <label>Qty:
+                <input type="number" min="1" value="1" class="qty-input" oninput="updateTotal(this)">
+              </label>
+              <p class="product-total">Total: KES <span class="total-value">1800</span></p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 CampusMarket. Built for students, by students.</p>
+      <p>Questions? Reach us at <a href="mailto:hello@campusmarket.example">hello@campusmarket.example</a></p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
